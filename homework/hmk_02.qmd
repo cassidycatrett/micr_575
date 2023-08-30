@@ -8,7 +8,11 @@ editor: visual
 
 ### Questions
 
-What were the main issues in the Reinhard and Rogoff issue, and how best could they have been avoided? What key attributes make a piece of data analysis "reproducible"? Please put those attributes in a prioritized list (i.e., for you, what is most important, next most important, etc...) Imagine that you are doing a piece of data analysis that only you will ever see: perhaps you are shopping for a car and trying to determine what will give you the best value for your money. Should you think about making your data analysis reproducible? Why or why not?
+What were the main issues in the Reinhard and Rogoff issue, and how best could they have been avoided? 
+
+What key attributes make a piece of data analysis "reproducible"? Please put those attributes in a prioritized list (i.e., for you, what is most important, next most important, etc...) 
+
+Imagine that you are doing a piece of data analysis that only you will ever see: perhaps you are shopping for a car and trying to determine what will give you the best value for your money. Should you think about making your data analysis reproducible? Why or why not?
 
 ### Responses
 
