@@ -1,0 +1,113 @@
+# Homework 03
+
+# Base R and R Basics
+
+## Creating and naming variables
+
+1.  Create a variable called `x` and use it to store the result of the
+    calculation `(3*(4+2)`.
+
+`x <- (3*(4+2))`
+
+2.  Calculate the product of `x` (from the above question) times π.
+
+`π <- 3.14`
+
+`x * π`
+
+56.52
+
+3.  Use the `getwd()` function to show your current working directory.
+    Is that a good working directory, and what program do you think set
+    it that way?
+
+`getwd()`
+
+\[1\] “/Users/cassidycatrett/Documents/micr_575/homework”
+
+This working directory I am in now is good for the purpose of this
+document. When I opened my R project for MICR 575, my directory is
+automatically “/Users/cassidycatrett/Documents/micr_575/” since that is
+the directory where my R project is saved. When I began working on this
+assignment, I changed my working directory to “~/homework” using the
+`setwd()` function.
+
+## Vectors
+
+1.  Use the `c()` function to create a vector of numbers.
+
+`a <- c(1,3,5,7)`
+
+2.  Use the `c()` function to create a vector of characters.
+
+`b <- c("c", "a", "s", "s")`
+
+3.  Use the `:` implicit function to create a vector of integers from 1
+    to 10.
+
+`c <- c(1:10)`
+
+4.  Explain *why* the following code returns what it does. Also address
+    whether you think this was a good decision on the part of the
+    designers of R?
+
+``` r
+v1 <- 1:3 # creates a vector that looks like `1 2 3`
+v2 <- c(1:4) # creates a vector that looks like `1 2 3 4`
+v1 + v2 # adds the values of the vectors together and yields 4 numbers in a vector `2 4 6 5`
+```
+
+    [1] 2 4 6 5
+
+This code chunk returns the results it does by taking the two vectors it
+creates and adds them together. Vectors are created in multiple ways,
+with just an implicit function, `:`, and by combining the `c()`,
+concatenate function, with an implicit function, `:`. The first vector
+only contains three values while the other contains four values. Because
+of this, the fourth value from the second vector, 4, is added to the
+first value of the first vector, 1, because the vector wraps. I don’t
+think this is a very good design for these functions. The way that
+vectors are created and look identical in structure with different
+functions creates confusion and lacks consistency in how vectors are
+created. Additionally, R’s assumption to wrap the smaller vector to add
+the values creates an issue if the goal was the only add values that are
+in the same position. This design, to me, is not a good design due to
+the confusion the results can create.
+
+5.  Explain what the following code does. It may be helpful to reference
+    the answer to the previous question:
+
+``` r
+c(1, 5, 9) + 3 # adds 3 to each part of the vector and yields a new vector, `4 8 12`
+```
+
+    [1]  4  8 12
+
+This code chunk adds 3 to each value within the vector. This is a
+clearer way of adding value to a vector to me because it looks like 3 is
+teh only value that can be added to each element of the vector.
+
+6.  Remove (delete) every variable in your workspace.
+
+`rm(list = ls())`+
+
+List allows for names to be added to this function. `ls()` includes all
+variables/objects in a workspace and by including the entire `ls()`
+records clears the workspace/environment.
+
+## Graphics
+
+1.  Load the tidyverse package. **NOTE:** Be sure to use the chunk
+    option `message=FALSE` to suppress the messages that tidyverse
+    prints when loaded. These messages are useful in the
+
+<!-- -->
+
+2.  Recreate the visualization of `body_mass_g` to `flipper_length_mm`,
+    from the penguins data set, that is shown in question 8 of section
+    2.2.5 of [R4DS](https://r4ds.hadley.nz/data-visualize).
+
+3.  Explain why each aesthetic is mapped at the level that it is (i.e.,
+    at the global level, in the `ggplot()` function call, or at the geom
+    level, in the `geom_XXX()` function call). Note: A lot of different
+    options will work, but some options are clearly better than others.
