@@ -101,11 +101,53 @@ records clears the workspace/environment.
     option `message=FALSE` to suppress the messages that tidyverse
     prints when loaded. These messages are useful in the
 
-<!-- -->
+``` r
+library(tidyverse) # I already had the tidyverse installed so I did not have to reinstall
+```
 
 2.  Recreate the visualization of `body_mass_g` to `flipper_length_mm`,
     from the penguins data set, that is shown in question 8 of section
-    2.2.5 of [R4DS](https://r4ds.hadley.nz/data-visualize).
+    2.2.5 of \[R4DS\].
+
+Before running packages with the data needed, we have to install them.
+Below are the commands to do so.
+
+``` r
+# install.packages("palmerpenguins", "ggthemes") 
+# installing needed packages for the dataset and color palette. Installation only has to occur once. 
+```
+
+Now, I can load the packages with the `library` function.
+
+``` r
+library(palmerpenguins, ggthemes) # loading these packages I just installed
+```
+
+Here, I want to my dataset an object within my environment so that I can
+easily view it to see column names, row names, and other information.
+
+``` r
+penguins <- penguins # this creates an object for my dataset so that I can see it in my global environment
+```
+
+Now, I want to plot information from my dataset so that I can visualize
+it and make comparisons. The information I want to plot is `body_mass_g`
+and `flipper_length_mm`. To do this, I’m going to use the ggplot package
+within the tidyverse.
+
+``` r
+ggplot(
+  data = penguins,
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_point(aes(color = bill_depth_mm)) +
+  geom_smooth()
+```
+
+    Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).
+
+    Warning: Removed 2 rows containing missing values (`geom_point()`).
+
+![](hmk_03_files/figure-commonmark/unnamed-chunk-7-1.png)
 
 3.  Explain why each aesthetic is mapped at the level that it is (i.e.,
     at the global level, in the `ggplot()` function call, or at the geom
