@@ -85,11 +85,11 @@ c(1, 5, 9) + 3 # adds 3 to each part of the vector and yields a new vector, `4 8
 
 This code chunk adds 3 to each value within the vector. This is a
 clearer way of adding value to a vector to me because it looks like 3 is
-teh only value that can be added to each element of the vector.
+the only value that can be added to each element of the vector.
 
 6.  Remove (delete) every variable in your workspace.
 
-`rm(list = ls())`+
+`rm(list = ls())`
 
 List allows for names to be added to this function. `ls()` includes all
 variables/objects in a workspace and by including the entire `ls()`
@@ -137,10 +137,10 @@ within the tidyverse.
 
 ``` r
 ggplot(
-  data = penguins,
-  mapping = aes(x = flipper_length_mm, y = body_mass_g)) +
-  geom_point(aes(color = bill_depth_mm)) +
-  geom_smooth()
+  data = penguins, # dataset
+  mapping = aes(x = flipper_length_mm, y = body_mass_g)) + # x and y axis information and labels
+  geom_point(aes(color = bill_depth_mm)) + # scatter plot information
+  geom_smooth() # line showing how these points and other info correlate
 ```
 
     Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).
@@ -149,7 +149,22 @@ ggplot(
 
 ![](hmk_03_files/figure-commonmark/unnamed-chunk-7-1.png)
 
+``` r
+ggsave(filename = "hmk_03_plot.png", device = "png") # command to save this plot to my current directory
+```
+
+    Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).
+    Removed 2 rows containing missing values (`geom_point()`).
+
 3.  Explain why each aesthetic is mapped at the level that it is (i.e.,
     at the global level, in the `ggplot()` function call, or at the geom
     level, in the `geom_XXX()` function call). Note: A lot of different
     options will work, but some options are clearly better than others.
+
+The foundation information for our plot needs to be mapped at the global
+level so that this information remains the basis for the entire plot. In
+this instance, that information is `flipper_length_mm`for the x-axis and
+`body_mass_g` for the y-axis. These plots can be expanded upon when we
+plot information at the local/geom level. Here, we want to compare
+`bill_depth_mm` to the information on our x-axis and y-axis to see how
+this information is distributed and correlated.
