@@ -11,11 +11,11 @@
 
 2.  Calculate the product of `x` (from the above question) times π.
 
-`π <- 3.14`
+`π <-`
 
 `x * π`
 
-56.52
+56.54867
 
 3.  Use the `getwd()` function to show your current working directory.
     Is that a good working directory, and what program do you think set
@@ -126,10 +126,6 @@ library(palmerpenguins, ggthemes) # loading these packages I just installed
 Here, I want to my dataset an object within my environment so that I can
 easily view it to see column names, row names, and other information.
 
-``` r
-penguins <- penguins # this creates an object for my dataset so that I can see it in my global environment
-```
-
 Now, I want to plot information from my dataset so that I can visualize
 it and make comparisons. The information I want to plot is `body_mass_g`
 and `flipper_length_mm`. To do this, I’m going to use the ggplot package
@@ -143,18 +139,13 @@ ggplot(
   geom_smooth() # line showing how these points and other info correlate
 ```
 
+    `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
     Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).
 
     Warning: Removed 2 rows containing missing values (`geom_point()`).
 
-![](hmk_03_files/figure-commonmark/unnamed-chunk-7-1.png)
-
-``` r
-ggsave(filename = "hmk_03_plot.png", device = "png") # command to save this plot to my current directory
-```
-
-    Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).
-    Removed 2 rows containing missing values (`geom_point()`).
+![](hmk_03_files/figure-commonmark/unnamed-chunk-6-1.png)
 
 3.  Explain why each aesthetic is mapped at the level that it is (i.e.,
     at the global level, in the `ggplot()` function call, or at the geom

@@ -14,11 +14,11 @@ editor: source
 
 2.  Calculate the product of `x` (from the above question) times π.
 
-`π <- 3.14`
+`π <- `
 
 `x * π`
 
-56.52
+56.54867
 
 3.  Use the `getwd()` function to show your current working directory. Is that a good working directory, and what program do you think set it that way?
 
@@ -91,20 +91,14 @@ library(palmerpenguins, ggthemes) # loading these packages I just installed
 
 Here, I want to my dataset an object within my environment so that I can easily view it to see column names, row names, and other information.
 
-```{r, message=FALSE}
-penguins <- penguins # this creates an object for my dataset so that I can see it in my global environment
-```
-
 Now, I want to plot information from my dataset so that I can visualize it and make comparisons. The information I want to plot is `body_mass_g` and `flipper_length_mm`. To do this, I'm going to use the ggplot package within the tidyverse.
 
-```{r, message=FALSE}
+```{r}
 ggplot(
   data = penguins, # dataset
   mapping = aes(x = flipper_length_mm, y = body_mass_g)) + # x and y axis information and labels
   geom_point(aes(color = bill_depth_mm)) + # scatter plot information
   geom_smooth() # line showing how these points and other info correlate
-
-ggsave(filename = "hmk_03_plot.png", device = "png") # command to save this plot to my current directory
 ```
 
 
