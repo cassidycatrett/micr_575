@@ -139,8 +139,6 @@ ggplot(
   geom_smooth() # line showing how these points and other info correlate
 ```
 
-    `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
-
     Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).
 
     Warning: Removed 2 rows containing missing values (`geom_point()`).

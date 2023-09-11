@@ -93,7 +93,7 @@ Here, I want to my dataset an object within my environment so that I can easily 
 
 Now, I want to plot information from my dataset so that I can visualize it and make comparisons. The information I want to plot is `body_mass_g` and `flipper_length_mm`. To do this, I'm going to use the ggplot package within the tidyverse.
 
-```{r}
+```{r, message=FALSE}
 ggplot(
   data = penguins, # dataset
   mapping = aes(x = flipper_length_mm, y = body_mass_g)) + # x and y axis information and labels
