@@ -6,11 +6,10 @@ editor: visual
 
 Load needed packages
 
-```{r}
+```{r, message=FALSE}
 library(tidyverse)
 library(nycflights13)
 ```
-
 
 # Question 1: filtering
 
@@ -32,7 +31,6 @@ flights %>%
     y = "Air Time") # y axis label
 ```
 
-
 # Question 2: dealing with NAs
 
 Make a data frame of all of the rows of `flights` that have values for *both* `arr_time` and `dep_time` - that is, neither of those values are `NA`.
@@ -43,12 +41,11 @@ filtered.flghts <- flights %>% # choosing dataframe for reference
          !is.na(dep_time)) # removiinig NA departure times
 ```
 
-
 ## filtering NAs
 
 `ggplot()` will automatically remove NA values from the plot, as you may have seen in question 1, but it emits a warning message about that. Of course you could silence the warning message using [chunk options](https://bookdown.org/yihui/rmarkdown-cookbook/chunk-options.html), but how could you prevent them from appearing in the first place?
 
-Options for preventing the message about NAs include filtering out NAs from the data set during the initial filtering steps or adding the option `na.rm=TRUE` with the mapping function `(geom_point(), geom_hist(), etc.)`.
+`Options for preventing the message about NAs include filtering out NAs from the data set during the initial filtering steps or adding the option `na.rm=TRUE` with the mapping function `(geom_point(), geom_hist(), etc.)`.`
 
 # Question 3: adding columns
 
@@ -68,5 +65,3 @@ avg.speeds %>% # data frame of reference
        x = "Airline", # x axis label
        y = "Average Flight Speed (per hour)") # y axis label
 ```
-
-
