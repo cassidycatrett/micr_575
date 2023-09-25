@@ -11,7 +11,7 @@
 
 2.  Calculate the product of `x` (from the above question) times π.
 
-`π <-`
+`π <- pi`
 
 `x * π`
 
