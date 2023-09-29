@@ -35,7 +35,8 @@ View(students)
 Now that I have uploaded and viewed my data set, I want to clean it up. First, I notice that some columns are empty and are interpreted as NA values in R but there are also responses stated as "N/A". I want all of those to be interpreted in the same manner so I'm going to re-read in my data set to do that.
 
 ```{r, message=FALSE}
-students <- read_csv("../data/students.csv", na = c("N/A", ""))
+students <- read_csv("../data/students.csv", 
+                     na = c("N/A", ""))
 ```
 
 Now that all NA values have been interpreted in the same way, I want to rename my columns so they are all in the same format.
@@ -66,7 +67,6 @@ I see here that student_id is a dbl and all other columns are chr. I need to cha
 students <- students |> 
   mutate(meal_plan = factor(meal_plan), 
          age = parse_number(if_else(age == "five", "5", age)))
-glimpse(students)
 ```
 
 Here, I changed meal_plan to be a factor since this is a categorical variable, meaning there are only so many values this column can be. I also reformatted the age column to be a dbl and all the values are now written as numbers whereas, previously, there was once value written as "five".

@@ -43,7 +43,8 @@ those to be interpreted in the same manner so I’m going to re-read in my
 data set to do that.
 
 ``` r
-students <- read_csv("../data/students.csv", na = c("N/A", ""))
+students <- read_csv("../data/students.csv", 
+                     na = c("N/A", ""))
 ```
 
 Now that all NA values have been interpreted in the same way, I want to
@@ -78,16 +79,7 @@ visualize my data.
 students <- students |> 
   mutate(meal_plan = factor(meal_plan), 
          age = parse_number(if_else(age == "five", "5", age)))
-glimpse(students)
 ```
-
-    Rows: 6
-    Columns: 5
-    $ student_id     <dbl> 1, 2, 3, 4, 5, 6
-    $ full_name      <chr> "Sunil Huffmann", "Barclay Lynn", "Jayendra Lyne", "Leo…
-    $ favourite_food <chr> "Strawberry yoghurt", "French fries", NA, "Anchovies", …
-    $ meal_plan      <fct> Lunch only, Lunch only, Breakfast and lunch, Lunch only…
-    $ age            <dbl> 4, 5, 7, NA, 5, 6
 
 Here, I changed meal_plan to be a factor since this is a categorical
 variable, meaning there are only so many values this column can be. I
