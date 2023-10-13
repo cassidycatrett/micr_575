@@ -1,9 +1,5 @@
 # HMK 5: Reading and tidying data
 
-# Reading
-
-- [R4DS Chapters 6-9](https://r4ds.hadley.nz/data-import)
-
 # Data import
 
 ## Q1:
@@ -110,7 +106,8 @@ age <- read_csv("../data/afc.txt")
 The first column shows animal identification numbers. The second column
 shows the contemporary group for that animal. The third column shows the
 age at first calving in days for these heifers. The comma separated text
-file is in my git repository.
+file is
+[here](https://github.com/cassidycatrett/micr_575/blob/main/data/afc.txt).
 
 # Tidying
 
@@ -172,15 +169,20 @@ Finally, calculate this student’s average score for each of questions
 
 ``` r
 new_eval |> 
-  filter(question >= 7) |>
+  filter(question >= 7, 
+         question < 11) |>
+  group_by(question) |> 
   summarise(mean(response))
 ```
 
-    # A tibble: 1 × 1
-      `mean(response)`
-                 <dbl>
-    1             4.53
+    # A tibble: 4 × 2
+      question `mean(response)`
+         <dbl>            <dbl>
+    1        7             4.5 
+    2        8             4.62
+    3        9             4.31
+    4       10             4.44
 
 `filter` was used to subset the data file to only include questions 7-10
 
-The average response for questions 7-10 among the students was `4.525`.
+The average response for questions 7-10 is in the tibble above.
