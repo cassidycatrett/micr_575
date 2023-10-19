@@ -139,10 +139,6 @@ ggplot(
   geom_smooth() # line showing how these points and other info correlate
 ```
 
-    Warning: Removed 2 rows containing non-finite values (`stat_smooth()`).
-
-    Warning: Removed 2 rows containing missing values (`geom_point()`).
-
 ![](hmk_03_files/figure-commonmark/unnamed-chunk-6-1.png)
 
 3.  Explain why each aesthetic is mapped at the level that it is (i.e.,
