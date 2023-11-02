@@ -1,0 +1,59 @@
+---
+title: "HMK 08"
+format: gfm
+---
+
+# Joins
+
+First, load in packages.
+```{r, message=FALSE}
+library(tidyverse)
+library(nycflights13)
+```
+
+Create flights2 from class October 30
+```{r}
+flights2 <- flights |>
+  select(year, time_hour, origin, dest, tailnum, carrier)
+```
+
+1. Imagine you’ve found the top 10 most popular destinations using this code:
+```{r}
+top_dest <- flights2 |>
+  count(dest, sort = TRUE) |>
+  head(10)
+```
+How can you find all flights to those destinations?
+
+```{r}
+View(top_dest)
+```
+
+I now have my top destinations object and can see what the top 10 destinations are. To see all flights to those destinations from the original flights2 data set: 
+```{r}
+all_flights <- top_dest |> 
+  left_join(flights2, by = "dest")
+
+# all_flights |> count(dest)
+```
+
+Here, I used the left_join function to join my top_dest data set with the original flights2 data set to see each flight that went to those destinations by only joining according to the `dest`. To check that I only had those 10 destinations included in my new data set, I using the `count` function to see all the destinations included in the new data set and compared this list back to my original top_dest list. This was easy to do here since there were so few destinations included. However, an eye test would be much more difficult an possibly less accurate when joining larger data frames. 
+
+
+# Functions
+
+2. Write a function to 'rescale' a numeric vector by subtracting the mean of the vector from each element and then dividing each element by the standard deviation. 
+
+```{r}
+a <- c(1:20)
+
+rescale <- function(x) { 
+  x - mean(x) / sd(x)
+  }
+
+a2 <- rescale(a)
+```
+
+I created a vector `a` that just contains the values 1-20. I then wrote a function where the mean of x (my column of information) is subtracted from the original value and then each value is divided by the standard deviation. This returns a vector of those new values. 
+
+
