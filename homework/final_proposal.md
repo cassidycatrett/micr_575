@@ -1,0 +1,10 @@
+# final_proposal
+
+## Final Proposal
+
+I plan to create an in depth Quarto document to run phenootypic analyses
+(summary statistics, correlations). This will involve data cleaning
+steps and the creation of functions to automate these analyses. This
+will benefit my current dissertation work as well as my current and
+future lab mates working with novel phenotypes and other animal breeding
+projects.
